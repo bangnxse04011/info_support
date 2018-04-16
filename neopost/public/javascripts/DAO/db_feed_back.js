@@ -11,7 +11,7 @@ const Feed_back = connection_db.define('feed_back', {
     message: { type: Sequelize.STRING }
 });
 
-Feed_back.sync();
+// Feed_back.sync();
 
 module.exports = Feed_back;
 
