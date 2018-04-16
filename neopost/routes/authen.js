@@ -27,7 +27,7 @@ router.post('/', function (req, res, next) {
         }
     }).then(info => {
         console.log(info);
-        // res.render(page.page_detail, { info: info });
+        res.render(page.page_admin);
     }).catch(function (err) {
         console.log(err);
         res.render('error');

@@ -13,7 +13,7 @@ const Info_support = connection_db.define('info_support', {
     status: { type: Sequelize.INTEGER }
 });
 
-Info_support.sync();
+// Info_support.sync();
 
 module.exports = Info_support;
 
