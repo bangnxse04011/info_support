@@ -966,6 +966,7 @@ RESERVATION SECTION
   float: left;
   overflow: hidden;
   width: 100%;
+  height: 15vw;
 }
 
 .mu-single-gallery .mu-single-gallery-item .mu-single-gallery-img img {
@@ -975,6 +976,7 @@ RESERVATION SECTION
   -ms-transition: all 0.8s;
   -o-transition: all 0.8s;
   transition: all 0.8s;
+  
 }
 
 .mu-single-gallery .mu-single-gallery-item .mu-single-gallery-info {

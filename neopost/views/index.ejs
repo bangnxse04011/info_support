@@ -219,14 +219,16 @@
 
             <div class="mu-gallery-content">
 
+             
               <!-- Start gallery image -->
               <div class="mu-gallery-body">
+                  <% list.forEach(function(info) { %>
                 <!-- start single gallery image -->
                 <div class="mu-single-gallery col-md-4">
                   <div class="mu-single-gallery-item">
                     <figure class="mu-single-gallery-img">
-                      <a class="mu-imglink" href="/stylesheets/assets/img/gallery/1.jpg">
-                        <img alt="img" src="/stylesheets/assets/img/gallery/1.jpg">
+                      <a class="mu-imglink" href="/stylesheets/assets/img/gallery/<%=info.path_img %>">
+                        <img alt="img" src="/stylesheets/assets/img/gallery/<%=info.path_img %>">
                         <div class="mu-single-gallery-info">
 
                         </div>
@@ -234,148 +236,17 @@
                     </figure>
                   </div>
                   <div>
-                    <div style="text-align: center; font-weight: bold;" class="">
-                      <h3>Title</h3>
+                    <div style="text-align: center; font-weight: bold;" >
+                      <h3><%=info.title %></h3>
                     </div>
-                    <div class=""> Description </div>
-                    <div class="">Mot cai gi nua </div>
+                    <div class=""> <%=info.description %> </div>
+                    <div class=""> <%=info.address %> </div>
                   </div>
                 </div>
+                <% }); %>
                 <!-- End single gallery image -->
 
-                <!-- start single gallery image -->
-                <div class="mu-single-gallery col-md-4">
-                  <div class="mu-single-gallery-item">
-                    <figure class="mu-single-gallery-img">
-                      <a class="mu-imglink" href="/stylesheets/assets/img/gallery/2.jpg">
-                        <img alt="img" src="/stylesheets/assets/img/gallery/2.jpg">
-                        <div class="mu-single-gallery-info">
-                          <img class="mu-view-btn" src="/stylesheets/assets/img/plus.png" alt="plus icon img">
-                        </div>
-                      </a>
-                    </figure>
-                  </div>
-                  <div>
-                    <div style="text-align: center; font-weight: bold;" class="">
-                      <h3>Title</h3>
-                    </div>
-                    <div class=""> Description </div>
-                    <div class="">Mot cai gi nua </div>
-                  </div>
-                </div>
-                <!-- End single gallery image -->
-
-                <!-- start single gallery image -->
-                <div class="mu-single-gallery col-md-4">
-                  <div class="mu-single-gallery-item">
-                    <figure class="mu-single-gallery-img">
-                      <a class="mu-imglink" href="/stylesheets/assets/img/gallery/3.jpg">
-                        <img alt="img" src="/stylesheets/assets/img/gallery/3.jpg">
-                        <div class="mu-single-gallery-info">
-                          <img class="mu-view-btn" src="/stylesheets/assets/img/plus.png" alt="plus icon img">
-                        </div>
-                      </a>
-                    </figure>
-                  </div>
-                  <div>
-                    <div style="text-align: center; font-weight: bold;" class="">
-                      <h3>Title</h3>
-                    </div>
-                    <div class=""> Description </div>
-                    <div class="">Mot cai gi nua </div>
-                  </div>
-                </div>
-                <!-- End single gallery image -->
-
-                <!-- start single gallery image -->
-                <div class="mu-single-gallery col-md-4">
-                  <div class="mu-single-gallery-item">
-                    <figure class="mu-single-gallery-img">
-                      <a class="mu-imglink" href="/stylesheets/assets/img/gallery/4.jpg">
-                        <img alt="img" src="/stylesheets/assets/img/gallery/4.jpg">
-                        <div class="mu-single-gallery-info">
-                          <img class="mu-view-btn" src="/stylesheets/assets/img/plus.png" alt="plus icon img">
-                        </div>
-                      </a>
-                    </figure>
-                  </div>
-                </div>
-                <!-- End single gallery image -->
-
-                <!-- start single gallery image -->
-                <div class="mu-single-gallery col-md-4">
-                  <div class="mu-single-gallery-item">
-                    <figure class="mu-single-gallery-img">
-                      <a class="mu-imglink" href="/stylesheets/assets/img/gallery/5.jpg">
-                        <img alt="img" src="/stylesheets/assets/img/gallery/5.jpg">
-                        <div class="mu-single-gallery-info">
-                          <img class="mu-view-btn" src="/stylesheets/assets/img/plus.png" alt="plus icon img">
-                        </div>
-                      </a>
-                    </figure>
-                  </div>
-                </div>
-                <!-- End single gallery image -->
-
-                <!-- start single gallery image -->
-                <div class="mu-single-gallery col-md-4">
-                  <div class="mu-single-gallery-item">
-                    <figure class="mu-single-gallery-img">
-                      <a class="mu-imglink" href="/stylesheets/assets/img/gallery/6.jpg">
-                        <img alt="img" src="/stylesheets/assets/img/gallery/6.jpg">
-                        <div class="mu-single-gallery-info">
-                          <img class="mu-view-btn" src="/stylesheets/assets/img/plus.png" alt="plus icon img">
-                        </div>
-                      </a>
-                    </figure>
-                  </div>
-                </div>
-                <!-- End single gallery image -->
-
-                <!-- start single gallery image -->
-                <div class="mu-single-gallery col-md-4">
-                  <div class="mu-single-gallery-item">
-                    <figure class="mu-single-gallery-img">
-                      <a class="mu-imglink" href="/stylesheets/assets/img/gallery/7.jpg">
-                        <img alt="img" src="/stylesheets/assets/img/gallery/7.jpg">
-                        <div class="mu-single-gallery-info">
-                          <img class="mu-view-btn" src="/stylesheets/assets/img/plus.png" alt="plus icon img">
-                        </div>
-                      </a>
-                    </figure>
-                  </div>
-                </div>
-                <!-- End single gallery image -->
-
-                <!-- start single gallery image -->
-                <div class="mu-single-gallery col-md-4">
-                  <div class="mu-single-gallery-item">
-                    <figure class="mu-single-gallery-img">
-                      <a class="mu-imglink" href="/stylesheets/assets/img/gallery/8.jpg">
-                        <img alt="img" src="/stylesheets/assets/img/gallery/8.jpg">
-                        <div class="mu-single-gallery-info">
-                          <img class="mu-view-btn" src="/stylesheets/assets/img/plus.png" alt="plus icon img">
-                        </div>
-                      </a>
-                    </figure>
-                  </div>
-                </div>
-                <!-- End single gallery image -->
-
-                <!-- start single gallery image -->
-                <div class="mu-single-gallery col-md-4">
-                  <div class="mu-single-gallery-item">
-                    <figure class="mu-single-gallery-img">
-                      <a class="mu-imglink" href="/stylesheets/assets/img/gallery/9.jpg">
-                        <img alt="img" src="/stylesheets/assets/img/gallery/9.jpg">
-                        <div class="mu-single-gallery-info">
-                          <img class="mu-view-btn" src="/stylesheets/assets/img/plus.png" alt="plus icon img">
-                        </div>
-                      </a>
-                    </figure>
-                  </div>
-                </div>
-                <!-- End single gallery image -->
+            
               </div>
             </div>
           </div>

@@ -7,7 +7,7 @@ const page = require('../public/javascripts/common/page_common');
 router.get('/', function(req, res, next) {
     info_support.find_all_info_support().then(result => {
         console.log(result.dataValues);
-        res.render(page.page_index);
+        res.render(page.page_index,{list:result});
     });
 });
 
