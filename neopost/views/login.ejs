@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Vilucky</title>
+  <title>Vilucky</title>
   <style>
     @import "compass/css3";
     @import url(https://fonts.googleapis.com/css?family=Vibur);
@@ -11,15 +11,18 @@
       -webkit-box-sizing: border-box;
       font-family: arial;
     }
+
     body {
       background: green;
     }
+
     h1 {
       color: #ccc;
       text-align: center;
       font-family: 'Vibur', cursive;
       font-size: 50px;
     }
+
     .login-form {
       width: 350px;
       padding: 40px 30px;
@@ -32,10 +35,12 @@
       top: 10%;
 
     }
+
     .form-group {
       position: relative;
       margin-bottom: 15px;
     }
+
     .form-control {
       width: 100%;
       height: 50px;
@@ -46,12 +51,14 @@
       border: 2px solid #ddd;
 
     }
+
     .form-group .fa {
       position: absolute;
       right: 15px;
       top: 17px;
       color: #999;
     }
+
     .log-btn {
       background: #0AC986;
       display: inline-block;
@@ -63,6 +70,7 @@
       border: none;
 
     }
+
     .link {
       text-decoration: none;
       color: #C6C6C6;
@@ -71,6 +79,7 @@
       margin-bottom: 15px;
 
     }
+
     .alert {
       display: none;
       font-size: 12px;
@@ -79,21 +88,22 @@
     }
   </style>
 </head>
+
 <body>
-  <form action="" method="POST">
+  <form action="/authen/" method="POST">
     <div class="login-form">
-        <h1>ADMIN</h1>
-        <div class="form-group ">
-          <input type="text" class="form-control" placeholder="Username " name="uname" />
-          <i class="fa fa-user"></i>
-        </div>
-        <div class="form-group log-status">
-          <input type="password" class="form-control" placeholder="Password" name="passwd" />
-          <i class="fa fa-lock"></i>
-        </div>
-        <span class="alert">Invalid Credentials</span>
-        <button type="submit" class="log-btn">Log in</button>
+      <h1>ADMIN</h1>
+      <div class="form-group ">
+        <input type="text" class="form-control" placeholder="Username " name="user_name" />
+        <i class="fa fa-user"></i>
       </div>
+      <div class="form-group log-status">
+        <input type="password" class="form-control" placeholder="Password" name="pass_word" />
+        <i class="fa fa-lock"></i>
+      </div>
+      <span class="alert">Invalid Credentials</span>
+      <button type="submit" class="log-btn">Log in</button>
+    </div>
   </form>
 </body>
 

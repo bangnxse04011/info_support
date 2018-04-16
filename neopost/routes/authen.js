@@ -1,5 +1,5 @@
 const express = require('express');
-const login = require('../public/javascripts/authentication_login');
+const login = require('../public/javascripts/Info_DAO/account_dao');
 const message = require('../public/javascripts/common/message_common');
 const page = require('../public/javascripts/common/page_common');
 const router = express.Router();
@@ -7,7 +7,7 @@ const router = express.Router();
 /**
  * Method authen to system using username and password
  */
-router.post('/authen', function (req, res, next) {
+router.post('/', function (req, res, next) {
     // Get username and password from form
     let user_name = req.body.user_name;
     let pass_word = req.body.pass_word;
@@ -21,7 +21,7 @@ router.post('/authen', function (req, res, next) {
     // Check authen by username and password
     login.authen_login(user_name, pass_word).then(
         (resolve) => {
-            console.log(resolve);
+            console.log(resolve + "-------------------------------");
         },
 
         (reject) => {
