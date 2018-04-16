@@ -104,13 +104,29 @@
 <!-- Information body>-->
 <section id="mu-slider">
 <div class="container">
-        <div style="" class="col-md-8">
-                <img alt="img" src="/stylesheets/assets/img/gallery/1.jpg">
+        <% list.forEach(function(info) { %>
+    <div class="row">
+        <div class="col-md-8">
+                <img alt="img" src="/stylesheets/assets/img/gallery/<%=info.path_img %>">
         </div>
 
 
-        <div class="col-md-4">info</div>
+        <div class="col-md-4">
+            <div class="row"> <h1><%=info.title %></h1></div>
+            <div class="row"><h2> <%=info.fullName %></h2></div>
+            <div class="row"><h3> <%=info.address %></h3></div>
+           
+            <div class="row row_second"> <button type="button" class="btn btn-info btn-block">Ủng hộ chuyển tiền</button></div>
+            <div class="row row_second"> <button type="button" class="btn btn-info btn-block">Ủng hộ xem quảng cáo </button></div>
+            <div class="row row_second">  <button type="button" class="btn btn-info btn-block">Ủng hộ mua sản phẩm</button></div>
 
+        </div>
+</div>
+<div class="row">
+      <h3>Thông tin chi tiết: </h3>
+      <%=info.description %>
+</div>
+<% }); %>
     </div>
 
 </section>
