@@ -227,32 +227,30 @@
                   <div class="mu-single-gallery col-md-4">
                     <div class="mu-single-gallery-item">
                       <figure class="mu-single-gallery-img">
-                        <a class="mu-imglink" href="/stylesheets/assets/img/gallery/<%=info.path_img %>">
+                        <a href="/details/<%= info.id %>">
                           <img alt="img" src="/stylesheets/assets/img/gallery/<%=info.path_img %>">
-                          <div class="mu-single-gallery-info">
-
-                          </div>
+                          <div class="mu-single-gallery-info"></div>
                         </a>
                       </figure>
                     </div>
-                    <div>
-                      <div style="text-align: center; font-weight: bold;">
-                        <h3>
-                          <%=info.title %>
-                        </h3>
+                    <a href="/details/<%= info.id %>">
+                      <div>
+                        <div style="text-align: center; font-weight: bold;">
+                          <h3>
+                            <%=info.title %>
+                          </h3>
+                        </div>
+                        <div class="">
+                          <%=info.description %>
+                        </div>
+                        <div class="">
+                          <%=info.address %>
+                        </div>
                       </div>
-                      <div class="">
-                        <%=info.description %>
-                      </div>
-                      <div class="">
-                        <%=info.address %>
-                      </div>
-                    </div>
+                    </a>
                   </div>
                   <% }); %>
                     <!-- End single gallery image -->
-
-
               </div>
             </div>
           </div>

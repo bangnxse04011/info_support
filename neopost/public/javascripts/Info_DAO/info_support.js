@@ -10,11 +10,17 @@ module.exports = {
     /**
      * Method find information support by id
      */
-    find_info_by_id: (id) => {
-        return db_tabale_info_support.findOne({
-            where: {
-                id: id
-            }
-        });
-    },
+    // find_info_by_id: (_id) => {
+    //     return new Promise((resolve, reject) => {
+    //         db_tabale_info_support.findOne({
+    //             where: {
+    //                 id: _id
+    //             }
+    //         }).then(result => {
+    //             resolve(result);
+    //         }).catch(err => {
+    //             reject(err);
+    //         });
+    //     });
+    // },
 }
