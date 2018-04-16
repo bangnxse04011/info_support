@@ -219,34 +219,40 @@
 
             <div class="mu-gallery-content">
 
-             
+
               <!-- Start gallery image -->
               <div class="mu-gallery-body">
-                  <% list.forEach(function(info) { %>
-                <!-- start single gallery image -->
-                <div class="mu-single-gallery col-md-4">
-                  <div class="mu-single-gallery-item">
-                    <figure class="mu-single-gallery-img">
-                      <a class="mu-imglink" href="/stylesheets/assets/img/gallery/<%=info.path_img %>">
-                        <img alt="img" src="/stylesheets/assets/img/gallery/<%=info.path_img %>">
-                        <div class="mu-single-gallery-info">
+                <% list.forEach(function(info) { %>
+                  <!-- start single gallery image -->
+                  <div class="mu-single-gallery col-md-4">
+                    <div class="mu-single-gallery-item">
+                      <figure class="mu-single-gallery-img">
+                        <a class="mu-imglink" href="/stylesheets/assets/img/gallery/<%=info.path_img %>">
+                          <img alt="img" src="/stylesheets/assets/img/gallery/<%=info.path_img %>">
+                          <div class="mu-single-gallery-info">
 
-                        </div>
-                      </a>
-                    </figure>
-                  </div>
-                  <div>
-                    <div style="text-align: center; font-weight: bold;" >
-                      <h3><%=info.title %></h3>
+                          </div>
+                        </a>
+                      </figure>
                     </div>
-                    <div class=""> <%=info.description %> </div>
-                    <div class=""> <%=info.address %> </div>
+                    <div>
+                      <div style="text-align: center; font-weight: bold;">
+                        <h3>
+                          <%=info.title %>
+                        </h3>
+                      </div>
+                      <div class="">
+                        <%=info.description %>
+                      </div>
+                      <div class="">
+                        <%=info.address %>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <% }); %>
-                <!-- End single gallery image -->
+                  <% }); %>
+                    <!-- End single gallery image -->
 
-            
+
               </div>
             </div>
           </div>
