@@ -5,15 +5,15 @@ const Sequelize = require('sequelize');
  * Create Table Users
  */
 const Info_support = connection_db.define('info_support', {
-    fullName: { type: Sequelize.STRING },
-    title: { type: Sequelize.STRING },
-    address: { type: Sequelize.STRING },
-    description: { type: Sequelize.STRING },
+    fullName: { type: Sequelize.STRING(10485760) },
+    title: { type: Sequelize.STRING(10485760) },
+    address: { type: Sequelize.STRING(10485760) },
+    description: { type: Sequelize.STRING(10485760) },
     path_img: { type: Sequelize.STRING },
     status: { type: Sequelize.INTEGER }
 });
 
-// Info_support.sync();
+Info_support.sync();
 
 module.exports = Info_support;
 
