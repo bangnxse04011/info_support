@@ -19,13 +19,16 @@ router.post('/authen', function (req, res, next) {
         res.render(page.page_login, { mess: message.MSG_ACC_2 });
     }
     // Check authen by username and password
-    login.authen_login(user_name, pass_word).then((result) => {
-        if (result != null) {
-            res.render(page.page_index);
-        } else {
-            res.render(page.page_login, { mess: message.MSG_ACC_3 });
+    login.authen_login(user_name, pass_word).then(
+        (resolve) => {
+            console.log(resolve);
+        },
+
+        (reject) => {
+            console.log("--------------------------");
+            console.log(reject);
         }
-    });
+    );
 });
 
 module.exports = router;
