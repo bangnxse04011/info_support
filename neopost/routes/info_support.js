@@ -10,5 +10,8 @@ router.get('/', function(req, res, next) {
         res.render(page.page_index,{list:result});
     });
 });
+router.get('/detail',(req,res)=>{
+    res.render(page.page_detail);
+});
 
 module.exports = router;
