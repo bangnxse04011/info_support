@@ -1,5 +1,5 @@
 var express = require('express');
-const info_support = require('../public/javascripts/Account_DAO/info_support');
+const info_support = require('../public/javascripts/Info_DAO/info_support');
 var router = express.Router();
 const page = require('../public/javascripts/common/page_common');
 
