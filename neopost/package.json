@@ -21,6 +21,9 @@
     "pg-hstore": "*",
     "ejs-lint": "*",
     "node-env-file": "*",
-    "nodemailer": "*"
+    "nodemailer": "*",
+    "formidable" : "*",
+    "fs" : "*",
+    "uuid/v1" : "*"
   }
 }

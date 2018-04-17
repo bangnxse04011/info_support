@@ -26,12 +26,23 @@ router.post('/', function (req, res, next) {
             pass_word: pass_word
         }
     }).then(info => {
-        console.log(info);
+        req.session.user_login_okie = user_name;
         res.render(page.page_admin);
     }).catch(function (err) {
-        console.log(err);
         res.render('error');
     });
+});
+
+/**
+ * Refresh login page
+ */
+router.get('/', function (req, res, next) {
+    let user = req.session.user_login_okie;
+    if (user == null || user == '' || user == "") {
+        res.render(page.page_login, { mess: 'Please login' });
+    } else {
+        res.render(page.page_admin);
+    }
 });
 
 module.exports = router;
