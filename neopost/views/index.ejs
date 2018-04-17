@@ -79,7 +79,7 @@
               <a href="/">Trang chủ</a>
             </li>
             <li>
-              <a href="#mu-about-us">Giới thiệu</a>
+              <a href="#mu-about-us">Chiến dịch</a>
             </li>
             <!-- <li>
               <a href="#mu-restaurant-menu">Sự kiện</a>
@@ -112,7 +112,8 @@
 
         <!-- Top slider single slide -->
         <div class="mu-top-slider-single">
-          <img src="/stylesheets/assets/img/slider/1.jpeg" alt="img">
+          <!-- <img src="/stylesheets/assets/img/slider/1.jpeg" alt="img"> -->
+          <img src="/stylesheets/images/1.jpg" alt="img">
           <!-- Top slider content -->
           <div class="mu-top-slider-content">
             <!-- <span class="mu-slider-small-title">Vilucky</span> -->
@@ -126,7 +127,8 @@
 
         <!-- Top slider single slide -->
         <div class="mu-top-slider-single">
-          <img src="/stylesheets/assets/img/slider/2.jpeg" alt="img">
+          <!-- <img src="/stylesheets/assets/img/slider/2.jpeg" alt="img"> -->
+          <img src="/stylesheets/images/2.jpg" alt="img">
           <!-- Top slider content -->
           <div class="mu-top-slider-content">
             <!-- <span class="mu-slider-small-title">Chuyên Nghiệp</span> -->
@@ -140,7 +142,8 @@
 
         <!-- Top slider single slide -->
         <div class="mu-top-slider-single">
-          <img src="/stylesheets/assets/img/slider/3.jpeg" alt="img">
+          <!-- <img src="/stylesheets/assets/img/slider/3.jpeg" alt="img"> -->
+          <img src="/stylesheets/images/3.jpg" alt="img">
           <!-- Top slider content -->
           <div class="mu-top-slider-content">
             <!-- <span class="mu-slider-small-title">Chất lượng</span> -->
@@ -162,42 +165,46 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="mu-about-us-area">
+          <div class="mu-gallery-area">
 
             <div class="mu-title">
-              <!-- <span class="mu-subtitle">Information</span> -->
-              <h2>Chiến Dịch</h2>
+              <!-- <span class="mu-subtitle">Event</span> -->
+              <h2>Chiến dịch</h2>
             </div>
 
-            <div class="row">
-              <div class="col-md-6">
-                <div class="mu-about-us-left">
-                  <img src="/stylesheets/assets/img/gioithieu.jpg" alt="img">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="mu-about-us-right">
-                  <i>
-                    <b>Vilucky</b> kết nối người dùng với các nhãn hàng cùng tham gia vào các hoạt động cộng đồng.
-                  </i>
-                  <br/>
-                  <br/>
-                  <br/>
-                  <ul>
-                    <li>
-                      <b>Giúp đỡ cộng đồng.</b>
-                    </li>
-                    <li>
-                      <b>Quỹ giúp người nghèo.</b>
-                    </li>
-                    <li>
-                      <b>Nguồn cảm hứng.</b>
-                    </li>
-                    <!-- <li>
-                      <b>Thiết kế, in ấn Graphic.</b>
-                    </li> -->
-                  </ul>
-                </div>
+            <div class="mu-gallery-content">
+
+
+              <!-- Start gallery image -->
+              <div class="mu-gallery-body">
+                <% list.forEach(function(info) { %>
+                  <!-- start single gallery image -->
+                  <div class="mu-single-gallery col-md-4">
+                    <div class="mu-single-gallery-item">
+                      <figure class="mu-single-gallery-img">
+                        <a href="/details/<%= info.id %>">
+                          <img alt="img" src="/stylesheets/assets/img/gallery/<%=info.path_img %>">
+                          <div class="mu-single-gallery-info"></div>
+                        </a>
+                      </figure>
+                    </div>
+                    <a href="/details/<%= info.id %>">
+                      <div>
+                        <div style="text-align: center; font-weight: bold;">
+                          <h3>
+                            <b>
+                              <%=info.fullName %>
+                            </b>
+                          </h3>
+                        </div>
+                        <div class="">
+                          <%=info.address %>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <% }); %>
+                    <!-- End single gallery image -->
               </div>
             </div>
           </div>
