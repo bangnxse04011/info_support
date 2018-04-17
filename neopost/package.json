@@ -24,6 +24,6 @@
     "nodemailer": "*",
     "formidable" : "*",
     "fs" : "*",
-    "uuid/v1" : "*"
+    "uuid" : "*"
   }
 }
