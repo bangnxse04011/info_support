@@ -9,7 +9,8 @@ var users = require('./routes/users');
 var feed_back = require('./routes/support');
 var info_support = require('./routes/info_support');
 var admin = require('./routes/admin');
-var authen = require('./routes/authen')
+var authen = require('./routes/authen');
+var event = require('./routes/event');
 
 var app = express();
 
@@ -30,6 +31,7 @@ app.use('/users', users);
 app.use('/feed-back', feed_back);
 app.use('/admin', admin);
 app.use('/authen', authen);
+app.use('/events', event);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
