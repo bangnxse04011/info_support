@@ -11,7 +11,7 @@ Target Server Type    : PGSQL
 Target Server Version : 90200
 File Encoding         : 65001
 
-Date: 2018-04-16 22:09:28
+Date: 2018-04-19 10:39:25
 */
 
 
@@ -20,6 +20,17 @@ Date: 2018-04-16 22:09:28
 -- ----------------------------
 DROP SEQUENCE IF EXISTS "accounts_id_seq";
 CREATE SEQUENCE "accounts_id_seq"
+ INCREMENT 1
+ MINVALUE 1
+ MAXVALUE 9223372036854775807
+ START 1
+ CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for events_id_seq
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "events_id_seq";
+CREATE SEQUENCE "events_id_seq"
  INCREMENT 1
  MINVALUE 1
  MAXVALUE 9223372036854775807
@@ -75,6 +86,33 @@ BEGIN;
 COMMIT;
 
 -- ----------------------------
+-- Table structure for events
+-- ----------------------------
+DROP TABLE IF EXISTS "events";
+CREATE TABLE "events" (
+"id" int4 DEFAULT nextval('events_id_seq'::regclass) NOT NULL,
+"fullName" varchar(10485760) COLLATE "default",
+"title" varchar(10485760) COLLATE "default",
+"address" varchar(10485760) COLLATE "default",
+"description" varchar(10485760) COLLATE "default",
+"path_img" varchar(255) COLLATE "default",
+"status" int4,
+"total_view" int4,
+"money" int4,
+"createdAt" timestamptz(6) NOT NULL,
+"updatedAt" timestamptz(6) NOT NULL
+)
+WITH (OIDS=FALSE)
+
+;
+
+-- ----------------------------
+-- Records of events
+-- ----------------------------
+BEGIN;
+COMMIT;
+
+-- ----------------------------
 -- Table structure for feed_backs
 -- ----------------------------
 DROP TABLE IF EXISTS "feed_backs";
@@ -103,12 +141,14 @@ COMMIT;
 DROP TABLE IF EXISTS "info_supports";
 CREATE TABLE "info_supports" (
 "id" int4 DEFAULT nextval('info_supports_id_seq'::regclass) NOT NULL,
-"fullName" varchar(255) COLLATE "default",
-"title" varchar(255) COLLATE "default",
-"address" varchar(255) COLLATE "default",
-"description" varchar(255) COLLATE "default",
+"fullName" varchar(10485760) COLLATE "default",
+"title" varchar(10485760) COLLATE "default",
+"address" varchar(10485760) COLLATE "default",
+"description" varchar(10485760) COLLATE "default",
 "path_img" varchar(255) COLLATE "default",
 "status" int4,
+"total_view" int4,
+"money" int4,
 "createdAt" timestamptz(6) NOT NULL,
 "updatedAt" timestamptz(6) NOT NULL
 )
@@ -126,6 +166,7 @@ COMMIT;
 -- Alter Sequences Owned By 
 -- ----------------------------
 ALTER SEQUENCE "accounts_id_seq" OWNED BY "accounts"."id";
+ALTER SEQUENCE "events_id_seq" OWNED BY "events"."id";
 ALTER SEQUENCE "feed_backs_id_seq" OWNED BY "feed_backs"."id";
 ALTER SEQUENCE "info_supports_id_seq" OWNED BY "info_supports"."id";
 
@@ -133,6 +174,11 @@ ALTER SEQUENCE "info_supports_id_seq" OWNED BY "info_supports"."id";
 -- Primary Key structure for table accounts
 -- ----------------------------
 ALTER TABLE "accounts" ADD PRIMARY KEY ("id");
+
+-- ----------------------------
+-- Primary Key structure for table events
+-- ----------------------------
+ALTER TABLE "events" ADD PRIMARY KEY ("id");
 
 -- ----------------------------
 -- Primary Key structure for table feed_backs
