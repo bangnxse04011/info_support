@@ -45,4 +45,11 @@ router.get('/', function (req, res, next) {
     }
 });
 
+/**
+ * Refresh login page
+ */
+router.get('/login', function (req, res, next) {
+    res.render('login_user');
+});
+
 module.exports = router;
