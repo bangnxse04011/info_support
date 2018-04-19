@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var passport = require('passport');
+var passportfb = require('passport-facebook').Strategy;
 
 var users = require('./routes/users');
 var feed_back = require('./routes/support');
@@ -12,11 +14,12 @@ var info_support = require('./routes/info_support');
 var admin = require('./routes/admin');
 var authen = require('./routes/authen');
 var event = require('./routes/event');
+const db = require('../neopost/public/javascripts/DAO/db_table_account');
 
 var app = express();
 
 app.use(session({
-  secret : "secret",
+  secret: "secret",
   saveUninitialized: true,
   resave: true
 }))
@@ -31,7 +34,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '/public')));
-app.use(session({secret: 'ssshhhhh'}));
+app.use(session({ secret: 'ssshhhhh' }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', info_support);
 app.use('/users', users);
@@ -56,6 +61,82 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+
+app.get('/authen/fb', passport.authenticate('facebook', { scope: ['email'] }));
+app.get('/authen/fb/cb', passport.authenticate('facebook', { failureRedirect: '/authen/fb', session: false, auth_type: 'reauthenticate' }),
+  function (req, res) {
+    // Successful authentication, redirect home.
+    req.session.user_id = users_id_user;
+    res.redirect(req.session.CUR_URl || '/');
+  });
+// successRedirect: '/users',
+// session: false
+// }
+// ));
+
+/**
+ * Method passportfb using authen facebook
+ */
+passport.use(new passportfb(
+  {
+    clientID: "2099003400329338",
+    clientSecret: "6e1aa20395a5fb4ec97bbad4ba068ce4",
+    callbackURL: "http://163.44.207.107/authen/fb/cb",
+    profileFields: ['email', 'gender', 'locale', 'displayName']
+  },
+  (accessToken, refreshToken, profile, done) => {
+    /**
+     * Method get accessToken
+     */
+    console.log(accessToken);
+    /**
+     * Find all check all user if user exits in DB
+     */
+    users_id_user = profile._json.id;
+    db.findAll({
+      where: {
+        id_user: profile._json.id
+      }
+    }).then(account => {
+      if (account == null || account == '' || account.length == 0) {
+        db.create({
+          fullName: profile._json.name,
+          email: profile._json.email,
+          id_user: profile._json.id,
+          role: 0
+        });
+        return done(null, account);
+      } else {
+        return done(null, account);
+      }
+    }).catch(function (err) {
+      console.log(err);
+    });
+  }
+));
+
+/**
+ * Find all check all user if user exits in DB
+ */
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+/**
+ * Find all check all user if user exits in DB
+ */
+passport.deserializeUser((id, done) => {
+  db.findAll({
+    where: {
+      id_user: profile._json.id
+    }
+  }).then(account => {
+    done(null, account);
+  }).catch(function (err) {
+    console.log(err);
+  });
 });
 
 module.exports = app;
