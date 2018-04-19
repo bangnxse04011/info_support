@@ -52,4 +52,10 @@ router.get('/login', function (req, res, next) {
     res.render('login_user');
 });
 
+/**
+ * Refresh register page
+ */
+router.get('/register', function (req, res, next) {
+    res.render('register');
+});
 module.exports = router;
