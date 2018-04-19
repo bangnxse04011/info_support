@@ -85,5 +85,27 @@ router.post('/login-user', function (req, res, next) {
     });
 });
 
+router.post('/register-user', function (req, res, next) {
+    let uname = req.body.username;
+    let passwd = req.body.pass;
+    let email = req.body.email;
+    let phone = req.body.phone;
 
+    let check_uname = valid.valid_input(uname);
+    let check_passwd = valid.valid_input(passwd);
+    let check_email = valid.valid_input(email);
+    let check_phone = valid.valid_input(phone);
+    if (check_uname == false || check_passwd == false || check_phone == false || check_email == false) {
+        res.render(page.page_error);
+    }
+    db_tabale_account.create({
+        email: email,
+        user_name: uname,
+        pass_word: passwd,
+        phone_number: phone,
+        role: 0
+    })
+    
+  res.redirect('/authen/login');
+});
 module.exports = router;
