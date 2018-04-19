@@ -10,7 +10,9 @@ const Event = connection_db.define('event', {
     address: { type: Sequelize.STRING(10485760) },
     description: { type: Sequelize.STRING(10485760) },
     path_img: { type: Sequelize.STRING },
-    status: { type: Sequelize.INTEGER }
+    status: { type: Sequelize.INTEGER },
+    total_view: { type: Sequelize.INTEGER },
+    money: { type: Sequelize.INTEGER }
 });
 
 // Event.sync();

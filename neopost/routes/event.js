@@ -16,8 +16,19 @@ router.get('/:id', function (req, res, next) {
             id: id_event
         }
     }).then(event => {
-        res.render(page.page_detail, { info: event });
+        // Get total view in page by id
+        let total_view = event.dataValues.total_view;
+        if (total_view == null || total_view == '' || total_view == "") {
+            total_view = 1;
+        } else {
+            total_view += 1;
+        }
+        event.updateAttributes({
+            total_view: total_view
+        })
+        res.render(page.page_detail, { info: event , total_view : total_view});
     }).catch(function (err) {
+        console.log(err);
         res.render('error');
     });
 });

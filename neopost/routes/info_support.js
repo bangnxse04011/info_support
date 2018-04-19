@@ -28,7 +28,16 @@ router.get('/details/:id', function (req, res, next) {
             id: id_info
         }
     }).then(info => {
-        res.render(page.page_detail, { info: info });
+        let total_view = info.dataValues.total_view;
+        if (total_view == null || total_view == '' || total_view == "") {
+            total_view = 1;
+        } else {
+            total_view += 1;
+        }
+        info.updateAttributes({
+            total_view: total_view
+        })
+        res.render(page.page_detail, { info: info, total_view: total_view });
     }).catch(function (err) {
         console.log(err);
         res.render('error');
