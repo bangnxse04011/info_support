@@ -58,7 +58,7 @@ router.post('/add_event', function (req, res, next) {
                     total_view: 0,
                     money: goal
                 });
-                res.redirect('/admin/');
+                res.redirect('/authen/');
             });
         } else {
             res.render(page.page_error);
@@ -95,7 +95,7 @@ router.post('/add_cd_vilucky', function (req, res, next) {
         if (check_name == false || check_titlee == false || check_des_n == false || check_des_d == false || check_goal == false) {
             res.render(page.page_error);
         }
-        
+
         let path_name = file.files.name.split('.');
         let new_name_file = uuidv1() + '.' + path_name[1];
         //path tmp trên server
@@ -114,7 +114,7 @@ router.post('/add_cd_vilucky', function (req, res, next) {
                 total_view: 0,
                 money: goal
             });
-            res.redirect('/admin/');
+            res.redirect('/authen/');
         });
     });
     return;
