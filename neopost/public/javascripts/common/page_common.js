@@ -3,5 +3,6 @@ module.exports = {
     'page_index': 'index',
     'page_error': 'error',
     'page_detail': 'details',
-    'page_admin': 'admin'
+    'page_admin': 'admin',
+    'page_register':'register'
 }
