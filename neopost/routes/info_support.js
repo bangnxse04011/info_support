@@ -5,6 +5,15 @@ const event_dao = require('../public/javascripts/Info_DAO/event_dao');
 const db_tabale_info_support = require('../public/javascripts/DAO/db_table_info_support');
 const page = require('../public/javascripts/common/page_common');
 
+/**
+ * 
+ */
+router.get('/logout', function (req, res, next) {
+    delete req.session.username;
+    delete req.session.user_login_users;
+    res.redirect('/');
+});
+
 /* GET users listing. */
 router.get('/', function (req, res, next) {
     info_support.find_all_info_support().then(info => {
