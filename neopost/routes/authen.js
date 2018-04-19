@@ -3,6 +3,7 @@ const login = require('../public/javascripts/Info_DAO/account_dao');
 const message = require('../public/javascripts/common/message_common');
 const page = require('../public/javascripts/common/page_common');
 const db_tabale_account = require('../public/javascripts/DAO/db_table_account');
+const valid = require('../public/javascripts/common/helper');
 const router = express.Router();
 
 /**
@@ -58,4 +59,31 @@ router.get('/login', function (req, res, next) {
 router.get('/register', function (req, res, next) {
     res.render('register');
 });
+
+router.post('/login-user', function (req, res, next) {
+    let uname = req.body.uname;
+    let passwd = req.body.passwd;
+
+    let check_uname = valid.valid_input(uname);
+    let check_passwd = valid.valid_input(passwd);
+
+    if (check_uname == false || check_passwd == false) {
+        res.render(page.page_error);
+    }
+
+    db_tabale_account.findOne({
+        where: {
+            user_name: uname,
+            pass_word: passwd,
+            role : 0
+        }
+    }).then(info => {
+        req.session.user_login_users = uname;
+        res.render(page.page_index);
+    }).catch(function (err) {
+        res.render('error');
+    });
+});
+
+
 module.exports = router;
