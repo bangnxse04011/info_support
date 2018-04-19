@@ -194,16 +194,28 @@
                             <%=info.fullName %>
                           </b>
                         </h3>
+                        <h5 style="white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;">
+                          <b>
+                            <%=info.address %>
+                          </b>
+                        </h5>
+                        <hr/>
                         <div style="text-align: center;" class="col-sm-6">
-                          <p style="font-size: 30px">
-                            <span id="number_ungho"> <%=info.total_view %></span>
+                          <p style="font-size: 20px">
+                            <span id="number_ungho">
+                              <%=info.total_view %>
+                            </span>
                           </p>
                           Ủng hộ
                         </div>
                         <div style="text-align: center;" class="col-sm-6">
-                          <p style="font-size: 30px">
-                            <span id="number_muctieu"> <%=info.money %></span>
-                            
+                          <p style="font-size: 20px">
+                            <span id="number_muctieu">
+                              <%=info.money %>
+                            </span>
+
                           </p>
                           Mục tiêu
                         </div>
@@ -250,26 +262,38 @@
                     </div>
                     <a href="/details/<%= info.id %>">
                       <div>
-                          <h3 style="text-align: center;">
-                            <b>
-                              <%=info.fullName %>
-                            </b>
-                          </h3>
-                          <div style="text-align: center;" class="col-sm-6">
-                            <p style="font-size: 30px">
-                              <span id="number_ungho"> <%=info.total_view %></span>
-                            </p>
-                            Ủng hộ
-                          </div>
-                          <div style="text-align: center;" class="col-sm-6">
-                            <p style="font-size: 30px">
-                              <span id="number_muctieu"><%=info.money %></span>
-                              
-                            </p>
-                            Mục tiêu
-                          </div>
-                          <button type="button" class=" btn-lg btn-block btn btn-info">Hành Động</button>
+                        <h3 style="text-align: center;">
+                          <b>
+                            <%=info.fullName %>
+                          </b>
+                        </h3>
+                        <h5 style="white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;">
+                          <b>
+                            <%=info.address %>
+                          </b>
+                        </h5>
+                        <hr/>
+                        <div style="text-align: center;" class="col-sm-6">
+                          <p style="font-size: 20px">
+                            <span id="number_ungho">
+                              <%=info.total_view %>
+                            </span>
+                          </p>
+                          Ủng hộ
                         </div>
+                        <div style="text-align: center;" class="col-sm-6">
+                          <p style="font-size: 20px">
+                            <span id="number_muctieu">
+                              <%=info.money %>
+                            </span>
+
+                          </p>
+                          Mục tiêu
+                        </div>
+                        <button type="button" class=" btn-lg btn-block btn btn-info">Hành Động</button>
+                      </div>
                     </a>
                   </div>
                   <% }); %>
@@ -479,4 +503,3 @@
 </body>
 
 </html>
-
