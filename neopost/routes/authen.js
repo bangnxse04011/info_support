@@ -60,7 +60,7 @@ router.get('/register', function (req, res, next) {
     res.render('register');
 });
 
-router.post('/login-user', function (req, res, next) {
+router.post('/login', function (req, res, next) {
     let uname = req.body.uname;
     let passwd = req.body.passwd;
 
@@ -79,7 +79,7 @@ router.post('/login-user', function (req, res, next) {
         }
     }).then(info => {
         req.session.user_login_users = uname;
-        res.render(page.page_index);
+        res.redirect('/');
     }).catch(function (err) {
         res.render('error');
     });

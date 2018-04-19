@@ -9,7 +9,18 @@ const page = require('../public/javascripts/common/page_common');
 router.get('/', function (req, res, next) {
     info_support.find_all_info_support().then(info => {
         event_dao.find_all_event().then(event => {
-            res.render(page.page_index, { list: info, event: event });
+            let user_login_users = req.session.user_login_users;
+            let login = "Đăng Nhập";
+            let logout = "";
+            let logout_href = "/authen/register";
+            if (user_login_users == null || user_login_users == '' || user_login_users == "") {
+                logout = "Đăng Ký";
+            } else {
+                login = "Xin Chào " + user_login_users;
+                logout = "Đăng Xuất";
+                logout_href = "/logout";
+            }
+            res.render(page.page_index, { list: info, event: event, login: login, logout: logout, logout_href: logout_href });
         });
     });
 });
@@ -28,6 +39,17 @@ router.get('/details/:id', function (req, res, next) {
             id: id_info
         }
     }).then(info => {
+        let user_login_users = req.session.user_login_users;
+        let login = "Đăng Nhập";
+        let logout = "";
+        let logout_href = "/authen/register";
+        if (user_login_users == null || user_login_users == '' || user_login_users == "") {
+            logout = "Đăng Ký";
+        } else {
+            login = "Xin Chào " + user_login_users;
+            logout = "Đăng Xuất";
+            logout_href = "/logout";
+        }
         let total_view = info.dataValues.total_view;
         if (total_view == null || total_view == '' || total_view == "") {
             total_view = 1;
@@ -37,7 +59,7 @@ router.get('/details/:id', function (req, res, next) {
         info.updateAttributes({
             total_view: total_view
         })
-        res.render(page.page_detail, { info: info, total_view: total_view });
+        res.render(page.page_detail, { info: info, total_view: total_view, login: login, logout: logout, logout_href: logout_href });
     }).catch(function (err) {
         console.log(err);
         res.render('error');
