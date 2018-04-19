@@ -57,7 +57,7 @@ router.get('/login', function (req, res, next) {
  * Refresh register page
  */
 router.get('/register', function (req, res, next) {
-    res.render('register');
+    res.render('register',{check:''});
 });
 
 router.post('/login', function (req, res, next) {
@@ -95,17 +95,23 @@ router.post('/register-user', function (req, res, next) {
     let check_passwd = valid.valid_input(passwd);
     let check_email = valid.valid_input(email);
     let check_phone = valid.valid_input(phone);
-    if (check_uname == false || check_passwd == false || check_phone == false || check_email == false) {
+    let check_length_phone = valid.valid_phone_number(phone);
+
+    if (check_uname == false || check_passwd == false || check_phone == false || check_email == false ) {
         res.render(page.page_error);
     }
-    db_tabale_account.create({
-        email: email,
-        user_name: uname,
-        pass_word: passwd,
-        phone_number: phone,
-        role: 0
-    })
-    
-  res.redirect('/authen/login');
+    if (check_length_phone == true) {
+        db_tabale_account.create({
+            email: email,
+            user_name: uname,
+            pass_word: passwd,
+            phone_number: phone,
+            role: 0
+        })
+        res.redirect('/authen/login');
+    }else{
+        res.render(page.page_register,{check:'Phone number must 10 number'});
+    }
+  
 });
 module.exports = router;
