@@ -203,7 +203,9 @@ img {
   -o-transition: all 0.5s;
   transition: all 0.5s;
 }
-
+.color-login-logout{
+  color:white !important ;
+}
 .mu-main-navbar .mu-main-nav .dropdown-menu {
   background-color: #fff;
   border-radius: 0;
