@@ -30,6 +30,7 @@
   <!-- Tangerine for small title -->
   <link href='https://fonts.googleapis.com/css?family=Tangerine' rel='stylesheet' type='text/css'>
   <!-- Open Sans for title -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -188,14 +189,25 @@
                     </div>
                     <a href="/events/<%= info.id %>">
                       <div>
-                        <h3>
+                        <h3 style="text-align: center;">
                           <b>
                             <%=info.fullName %>
                           </b>
                         </h3>
-                        <div class="">
-                          <%=info.address %>
+                        <div style="text-align: center;" class="col-sm-6">
+                          <p style="font-size: 30px">
+                            <span id="number_ungho">0</span>
+                          </p>
+                          Ủng hộ
                         </div>
+                        <div style="text-align: center;" class="col-sm-6">
+                          <p style="font-size: 30px">
+                            <span id="number_muctieu">0</span>
+                            
+                          </p>
+                          Mục tiêu
+                        </div>
+                        <button type="button" class=" btn-lg btn-block btn btn-info">Hành Động</button>
                       </div>
                     </a>
                   </div>
@@ -238,17 +250,26 @@
                     </div>
                     <a href="/details/<%= info.id %>">
                       <div>
-                        <div style="font-weight: bold;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
-                          <h3>
+                          <h3 style="text-align: center;">
                             <b>
                               <%=info.fullName %>
                             </b>
                           </h3>
+                          <div style="text-align: center;" class="col-sm-6">
+                            <p style="font-size: 30px">
+                              <span id="number_ungho">0</span>
+                            </p>
+                            Ủng hộ
+                          </div>
+                          <div style="text-align: center;" class="col-sm-6">
+                            <p style="font-size: 30px">
+                              <span id="number_muctieu">0</span>
+                              
+                            </p>
+                            Mục tiêu
+                          </div>
+                          <button type="button" class=" btn-lg btn-block btn btn-info">Hành Động</button>
                         </div>
-                        <div class="">
-                          <%=info.address %>
-                        </div>
-                      </div>
                     </a>
                   </div>
                   <% }); %>
@@ -454,11 +475,8 @@
       }
     }
   </script>
-</body>
-
-</html>
-
 
 </body>
 
 </html>
+
