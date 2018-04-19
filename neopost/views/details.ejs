@@ -94,25 +94,31 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8">
-          <img alt="img" src="/stylesheets/images/<%=info.path_img %>">
-        </div>
-        <div class="col-md-4">
-          <div class="row">
-            <h3>
-              <!-- <%=info.title %> -->
-            </h3>
-          </div>
           <div class="row">
             <h2>
               <%=info.fullName %>
             </h2>
           </div>
-          <div class="row row_second">
-            <button type="button" data-toggle="modal" data-target="#unghotk" class="btn btn-info btn-block">Ủng hộ chuyển tiền</button>
+          <div class="row rowsecond">
+            <img alt="img" src="/stylesheets/images/<%=info.path_img %>">
+
           </div>
+
+          <div class="row rowsecond">
+            <h3>Thông tin chi tiết: </h3>
+            <%=info.description %>
+          </div>
+        </div>
+        <div class="col-md-4">
+
+
           <div class="row row_second">
             <button type="button" data-toggle="modal" data-target="#unghoqc" class="btn btn-info btn-block">Ủng hộ xem quảng cáo </button>
           </div>
+          <div class="row row_second">
+            <button type="button" data-toggle="modal" data-target="#unghotk" class="btn btn-info btn-block">Ủng hộ chuyển tiền</button>
+          </div>
+
           <div class="row row_second">
             <button type="button" class="btn btn-info btn-block">Ủng hộ mua sản phẩm</button>
           </div>
@@ -126,13 +132,11 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <h3>Thông tin chi tiết: </h3>
-        <%=info.description %>
-      </div>
+
       <div class=" row rowsecond" style="margin-top:15%">
         <div class="fb-comments" data-href="http://localhost:3000/details/<%= info.id %>" data-width="700" data-numposts="5" data-colorscheme="light"></div>
       </div>
+
     </div>
 
   </section>
