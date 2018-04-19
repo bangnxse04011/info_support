@@ -89,4 +89,54 @@ router.post('/add_cd_vilucky', function (req, res, next) {
     return;
 });
 
+router.get('/find_all', function (req, res, next) {
+    let event = req.query.change;
+    if (event == null || event == '' || event == "") {
+        res.render(page.page_error);
+    }
+    if (event == 'event') {
+        event_table.findAll({
+            plain: false
+        }).then(video => {
+            let video_array = video.map((r) => (r.toJSON()));
+            res.end(JSON.stringify(video_array));
+        }).catch(function (err) {
+            res.render(page.page_error);
+        });
+    } else {
+        info_support.findAll({
+            plain: false
+        }).then(video => {
+            let video_array = video.map((r) => (r.toJSON()));
+            res.end(JSON.stringify(video_array));
+        }).catch(function (err) {
+            res.render(page.page_error);
+        });
+
+    }
+});
+
+router.get('/delete_post', function (req, res, next) {
+    var id_delete = req.query.id_delete;
+    var event = req.query.type;
+    var uname_session = req.session.user_login_okie;
+    if (uname_session == null || uname_session == '' || uname_session == "") {
+        res.redirect('/admin/');
+    }
+    if (event == 'event') {
+        event_table.destroy({
+            where: {
+                id: id_delete,
+            }
+        });
+    } else {
+        info_support.destroy({
+            where: {
+                id: id_delete,
+            }
+        });
+    }
+    res.redirect("/authen");
+});
+
 module.exports = router;
