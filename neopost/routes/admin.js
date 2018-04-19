@@ -3,6 +3,7 @@ const message = require('../public/javascripts/common/message_common');
 const page = require('../public/javascripts/common/page_common');
 const event_table = require('../public/javascripts/DAO/db_table_event');
 const info_support = require('../public/javascripts/DAO/db_table_info_support');
+const funtion_helper = require('../public/javascripts/common/helper');
 var formidable = require('formidable');
 var fs = require('fs');
 const uuidv1 = require('uuid/v1');
@@ -23,6 +24,19 @@ router.post('/add_event', function (req, res, next) {
         var titlee = fields.title;
         var des_n = fields.description_n;
         var des_d = fields.description_d;
+        var goal = fields.goal;
+
+        // Get input
+        let check_name = funtion_helper.valid_input(name);
+        let check_titlee = funtion_helper.valid_input(titlee);
+        let check_des_n = funtion_helper.valid_input(des_n);
+        let check_des_d = funtion_helper.valid_input(des_d);
+        let check_goal = funtion_helper.valid_input(goal);
+
+        // check null
+        if (check_name == false || check_titlee == false || check_des_n == false || check_des_d == false || check_goal == false) {
+            res.render(page.page_error);
+        }
 
         let path_name = file.files.name.split('.');
         if (path_name && path_name.length > 1) {
@@ -40,12 +54,14 @@ router.post('/add_event', function (req, res, next) {
                     address: des_n,
                     description: des_d,
                     path_img: new_name_file,
-                    status: '1'
+                    status: '1',
+                    total_view: 0,
+                    money: goal
                 });
-                res.end('Upload Thanh cong!');
+                res.redirect('/admin/');
             });
         } else {
-            res.end("LOI ROI");
+            res.render(page.page_error);
         }
     });
 
@@ -66,7 +82,20 @@ router.post('/add_cd_vilucky', function (req, res, next) {
         var titlee = fields.title;
         var des_n = fields.description_n;
         var des_d = fields.description_d;
+        var goal = fields.goal;
 
+        // Get input
+        let check_name = funtion_helper.valid_input(name);
+        let check_titlee = funtion_helper.valid_input(titlee);
+        let check_des_n = funtion_helper.valid_input(des_n);
+        let check_des_d = funtion_helper.valid_input(des_d);
+        let check_goal = funtion_helper.valid_input(goal);
+
+        // check null
+        if (check_name == false || check_titlee == false || check_des_n == false || check_des_d == false || check_goal == false) {
+            res.render(page.page_error);
+        }
+        
         let path_name = file.files.name.split('.');
         let new_name_file = uuidv1() + '.' + path_name[1];
         //path tmp trên server
@@ -81,9 +110,11 @@ router.post('/add_cd_vilucky', function (req, res, next) {
                 address: des_n,
                 description: des_d,
                 path_img: new_name_file,
-                status: '1'
+                status: '1',
+                total_view: 0,
+                money: goal
             });
-            res.end('Upload Thanh cong!');
+            res.redirect('/admin/');
         });
     });
     return;
