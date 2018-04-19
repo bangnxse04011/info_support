@@ -954,6 +954,7 @@ RESERVATION SECTION
   float: left;
   width: 100%;
   position: relative;
+  margin-bottom: 15px;
 }
 
 .mu-single-gallery .mu-single-gallery-item:hover .mu-single-gallery-info {
