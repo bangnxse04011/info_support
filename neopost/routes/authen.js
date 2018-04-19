@@ -75,7 +75,7 @@ router.post('/login-user', function (req, res, next) {
         where: {
             user_name: uname,
             pass_word: passwd,
-            role : 0
+            role: 0
         }
     }).then(info => {
         req.session.user_login_users = uname;
