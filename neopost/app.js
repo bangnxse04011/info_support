@@ -81,9 +81,9 @@ app.get('/authen/fb/cb', passport.authenticate('facebook', { failureRedirect: '/
  */
 passport.use(new passportfb(
   {
-    clientID: "2099003400329338",
-    clientSecret: "6e1aa20395a5fb4ec97bbad4ba068ce4",
-    callbackURL: "http://163.44.207.107/authen/fb/cb",
+    clientID: "244650479413541",
+    clientSecret: "cf5fca5e1b383898bd2b7c1e74ecd0ec",
+    callbackURL: "https://vilucky.com/authen/fb/cb",
     profileFields: ['email', 'gender', 'locale', 'displayName']
   },
   (accessToken, refreshToken, profile, done) => {
