@@ -25,7 +25,7 @@ $('#type_edit').change(function () {
             $('#link_video').html(str);
         }
     }
-    xhttp.open("GET", "//localhost:3000/admin/find_all?change="+change);
+    xhttp.open("GET", "http://163.44.207.107/admin/find_all?change="+change);
     xhttp.send();
     
 });
