@@ -19,6 +19,7 @@
   <link href='https://fonts.googleapis.com/css?family=Prata' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Tangerine' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <div id="fb-root"></div>
   <script>(function (d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -153,7 +154,7 @@
           <br/>
           <br/>
           <div class="row row_second">
-            <button type="button" data-toggle="modal" style="padding: 8px;font-size:20px;" data-target="#unghoqc" class="btn btn-info btn-block">
+            <button id="qc" type="button" data-toggle="modal" style="padding: 8px;font-size:20px;" data-target="#unghoqc" class="btn btn-info btn-block">
               <b>Ủng hộ xem quảng cáo </b>
             </button>
           </div>
@@ -220,11 +221,11 @@
           <h4 class="modal-title">Ủng hộ quảng cáo</h4>
         </div>
         <div class="modal-body">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/mtnIqoZ9NHk?autoplay=1" frameborder="0" allow="autoplay; encrypted-media"
+          <iframe id="youtube-video" width="560" height="315" src="https://www.youtube.com/embed/mtnIqoZ9NHk" frameborder="0" allow="autoplay; encrypted-media"
             allowfullscreen></iframe>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" id="dung" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
 
@@ -287,6 +288,17 @@
         modal.style.display = "none";
       }
     }
+
+    $(document).ready(function () {
+
+      $('#qc').click(function () {
+        $('#youtube-video')[0].src = 'https://www.youtube.com/embed/mtnIqoZ9NHk?autoplay=1';
+      });
+
+      $('#dung').click(function () {
+        $('#youtube-video')[0].src = 'https://www.youtube.com/embed/mtnIqoZ9NHk';
+      });
+    });
   </script>
 </body>
 
