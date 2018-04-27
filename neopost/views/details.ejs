@@ -55,10 +55,10 @@
           <!-- LOGO -->
 
           <!--  Text based logo  -->
-          <a class="navbar-brand" style="margin-right: 25px;" href="/">
+          <a class="navbar-brand" style="margin-right: 25px;" href="<%= controller %>">
             <img src="/stylesheets/images/logo.png" alt="Logo img">
           </a>
-          <a class="navbar-brand" href="/">Visharee
+          <a class="navbar-brand" href="<%= controller %>">Visharee
             <!-- <span>X</span> -->
           </a>
         </div>
@@ -203,6 +203,7 @@
           <p>STK: 45210000394275.
             <p> Chủ Tài Khoản: TRỊNH THẾ HOÀN.
               <p>Ngân hàng BIDV.
+                <p>Nội dung: Giupdo_<%=info.fullName %>_TenNguoiGiupDo</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

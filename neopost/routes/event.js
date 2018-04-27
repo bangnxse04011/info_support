@@ -37,7 +37,8 @@ router.get('/:id', function (req, res, next) {
         event.updateAttributes({
             total_view: total_view
         })
-        res.render(page.page_detail, { info: event, total_view: total_view, login: login, logout: logout, logout_href: logout_href });
+        var controller = "/events/" + id_event;
+        res.render(page.page_detail, { info: event, total_view: total_view, login: login, logout: logout, logout_href: logout_href, controller: controller });
     }).catch(function (err) {
         console.log(err);
         res.render('error');

@@ -68,7 +68,8 @@ router.get('/details/:id', function (req, res, next) {
         info.updateAttributes({
             total_view: total_view
         })
-        res.render(page.page_detail, { info: info, total_view: total_view, login: login, logout: logout, logout_href: logout_href });
+        var controller = "/details/" + id_info;
+        res.render(page.page_detail, { info: info, total_view: total_view, login: login, logout: logout, logout_href: logout_href, controller: controller });
     }).catch(function (err) {
         console.log(err);
         res.render('error');
