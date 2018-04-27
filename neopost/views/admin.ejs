@@ -10,6 +10,7 @@
 <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="/javascripts/Info_DAO/management_event.js"></script>
+
 <body>
 
   <div class="container w3-center w3-panel w3-green">
@@ -22,7 +23,7 @@
     <button class="w3-bar-item w3-button w3-large" onclick="openCity('upload_event')">Đăng Bài Chiến Dịch</button>
     <button class="w3-bar-item w3-button w3-large" onclick="openCity('upload_congdong')">Đăng Bài Vilucky</button>
     <button class="w3-bar-item w3-button w3-large" onclick="openCity('delete')">Xóa </button>
-    
+
     <button class="w3-bar-item w3-button w3-large" onclick="openCity('chat_24h')">Chat Trực Tuyến</button>
     <button class="w3-bar-item w3-button w3-large w3-right">
       <a href="/admin/log_out">Đăng xuất</a>
@@ -36,7 +37,7 @@
   </div>
 
 
-  <div id="upload_event" class="container w3-display-container city" >
+  <div id="upload_event" class="container w3-display-container city">
     <form class="w3-container w3-card-4 " action="/admin/add_event" method="POST" enctype="multipart/form-data">
       <h1 style="text-shadow:1px 1px 0 #444">Đăng bài Chiến Dịch</h1>
       <label>Tên</label>
@@ -96,51 +97,31 @@
       <h1 style="text-shadow:1px 1px 0 #444">Chỉnh sửa</h1>
       <input type="text" id="id_video" hidden />
       <p>
-    
+
         <div class="w3-dropdown-hover">
-          <select class="w3-button w3-card-4" id="type_edit"> 
-              <option value="">--Chọn kiểu chỉnh sửa--</option>            
+          <select class="w3-button w3-card-4" id="type_edit">
+            <option value="">--Chọn kiểu chỉnh sửa--</option>
             <option value="event">Chỉnh sửa chiến dịch</option>
             <option value="community">Chỉnh sửa cộng đồng</option>
           </select>
         </div>
       </p>
       <p>
-       
+
         <div class="w3-dropdown-hover">
-          <select class="w3-button w3-card-4" id="link_video"> 
+          <select class="w3-button w3-card-4" id="link_video">
             <option value="">--Chọn bài cần sửa--</option>
           </select>
         </div>
       </p>
       <p>
-<!--        
-      <label>Tên</label>
-      <input class="w3-input" type="text" name="name" />
-      </p>
-      <p>
-        <label>Title</label>
-        <input class="w3-input" type="text" name="title" />
-      </p>
-      <label>Miêu tả ngắn</label>
-      <textarea class="w3-input" placeholder="Write something.." name="description_n" /></textarea>
-      </br>
-      <label>Miêu tả chi tiết</label>
-      <textarea class="w3-input" placeholder="Write something.." name="description_d" /></textarea>
-      </br>
-      <label>Path images</label>
-      <input type="file" class="w3-input" placeholder="Write something.." name="files" />
-      </br>
-      <input class="w3-button w3-green" type="submit" value="Đăng">
-      </p>
-    </form> -->
-    <br/>
-    <form class="w3-container w3-card-4" action="/admin/delete_post" method="GET">
-      <input id="id_delete" class="w3-button w3-green" type="hidden" value="" name="id_delete"/>
-      <input id="type" class="w3-button w3-green" type="hidden" value="" name="type"/>
-      <input class="w3-button w3-green" type="submit" value="Xóa bài này">
-    </form>
-    
+        <br/>
+        <form class="w3-container w3-card-4" action="/admin/delete_post" method="GET">
+          <input id="id_delete" class="w3-button w3-green" type="hidden" value="" name="id_delete" />
+          <input id="type" class="w3-button w3-green" type="hidden" value="" name="type" />
+          <input class="w3-button w3-green" type="submit" value="Xóa bài này">
+        </form>
+
   </div>
   <script>
     function openCity(cityName) {
