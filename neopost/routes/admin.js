@@ -139,6 +139,8 @@ router.get('/find_all', function (req, res, next) {
             plain: false
         }).then(video => {
             let video_array = video.map((r) => (r.toJSON()));
+            res.header('Access-Control-Allow-Origin', '*')
+                .header('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT, OPTIONS, HEAD').build();
             res.end(JSON.stringify(video_array));
         }).catch(function (err) {
             res.render(page.page_error);
