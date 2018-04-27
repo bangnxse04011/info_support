@@ -93,34 +93,32 @@
     </form>
   </div>
   <div id="delete" class="container w3-display-container city" style="display:none">
-    <form class="w3-container w3-card-4 " action="/admin/add_cd_vilucky" method="POST" enctype="multipart/form-data">
-      <h1 style="text-shadow:1px 1px 0 #444">Chỉnh sửa</h1>
-      <input type="text" id="id_video" hidden />
-      <p>
-
-        <div class="w3-dropdown-hover">
-          <select class="w3-button w3-card-4" id="type_edit">
-            <option value="">--Chọn kiểu chỉnh sửa--</option>
-            <option value="event">Chỉnh sửa chiến dịch</option>
-            <option value="community">Chỉnh sửa cộng đồng</option>
-          </select>
-        </div>
-      </p>
-      <p>
-
-        <div class="w3-dropdown-hover">
-          <select class="w3-button w3-card-4" id="link_video">
-            <option value="">--Chọn bài cần sửa--</option>
-          </select>
-        </div>
-      </p>
-      <p>
-        <br/>
-        <form class="w3-container w3-card-4" action="/admin/delete_post" method="GET">
-          <input id="id_delete" class="w3-button w3-green" type="hidden" value="" name="id_delete" />
-          <input id="type" class="w3-button w3-green" type="hidden" value="" name="type" />
-          <input class="w3-button w3-green" type="submit" value="Xóa bài này">
-        </form>
+    <!-- <form class="w3-container w3-card-4 " action="/admin/add_cd_vilucky" method="POST" enctype="multipart/form-data"> -->
+    <h1 style="text-shadow:1px 1px 0 #444">Xóa</h1>
+    <input type="text" id="id_video" hidden />
+    <p>
+      <div class="w3-dropdown-hover">
+        <select class="w3-button w3-card-4" id="type_edit">
+          <option value="">--Chọn kiểu chỉnh sửa--</option>
+          <option value="event">Chỉnh sửa chiến dịch</option>
+          <option value="community">Chỉnh sửa cộng đồng</option>
+        </select>
+      </div>
+    </p>
+    <p>
+      <div class="w3-dropdown-hover">
+        <select class="w3-button w3-card-4" id="link_video">
+          <option value="">--Chọn bài cần sửa--</option>
+        </select>
+      </div>
+    </p>
+    <p>
+      <br/>
+      <form class="w3-container w3-card-4" action="/admin/delete_post" method="GET">
+        <input id="id_delete" class="w3-button w3-green" type="hidden" value="" name="id_delete" />
+        <input id="type" class="w3-button w3-green" type="hidden" value="" name="type" />
+        <input class="w3-button w3-green" type="submit" value="Xóa bài này">
+      </form>
 
   </div>
   <script>
